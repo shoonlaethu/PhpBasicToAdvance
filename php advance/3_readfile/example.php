@@ -19,7 +19,7 @@ if (file_exists($file)) {
     echo 'File not found.';
 }
 
-<?php
+
 
 // Open a file for reading
 $file = fopen("example.txt", "r");
@@ -62,4 +62,3 @@ if (file_exists($filename)) {
 
 ?>
 
-?>
