@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajax Poll Example</title>
+<script>
+function vote(option) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                document.getElementById("poll_result").innerHTML = xhr.responseText;
+            }
+        }
+    };
+    xhr.open("GET", "poll.php?vote=" + option, true);
+    xhr.send();
+}
+</script>
+</head>
+<body>
+
+<h2>Vote for:</h2>
+<button onclick="vote('single')">Single</button>
+<button onclick="vote('relationship')">Relationship</button>
+
+<div id="poll_result">
+    <!-- Poll result will be displayed here -->
+</div>
+
+</body>
+</html>
